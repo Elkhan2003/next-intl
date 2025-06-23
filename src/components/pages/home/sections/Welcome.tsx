@@ -22,7 +22,12 @@ export const Welcome: FC = () => {
 							>
 								{t('visitElchoDev')}
 							</a>
-							<a href="#projects" className={scss.secondaryBtn}>
+							<a
+								href="https://elcho.dev"
+								target="_blank"
+								rel="noopener noreferrer"
+								className={scss.secondaryBtn}
+							>
 								{t('viewProjects')}
 							</a>
 						</div>
