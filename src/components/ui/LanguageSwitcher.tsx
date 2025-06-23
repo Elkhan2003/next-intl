@@ -6,16 +6,12 @@ import { useRouter } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { IoIosArrowDown } from 'react-icons/io';
 
-interface LanguageSwitcherProps {
-	className?: string;
-}
-
 const languages = {
 	en: { name: 'English', flag: '🇺🇸' },
 	ru: { name: 'Русский', flag: '🇷🇺' }
 };
 
-export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ className }) => {
+export const LanguageSwitcher: FC = () => {
 	const locale = useLocale();
 	const router = useRouter();
 	const [isOpen, setIsOpen] = useState(false);
@@ -52,10 +48,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ className }) => {
 	const currentLang = languages[locale as keyof typeof languages];
 
 	return (
-		<div
-			className={`${scss.LanguageSwitcher} ${className || ''}`}
-			ref={dropdownRef}
-		>
+		<div className={`${scss.LanguageSwitcher}`} ref={dropdownRef}>
 			<button
 				className={`${scss.trigger} ${isOpen ? scss.open : ''}`}
 				onClick={() => setIsOpen(!isOpen)}
