@@ -9,7 +9,7 @@ export default getRequestConfig(async () => {
 
 	// Проверяем, что локаль поддерживается
 	const locale = routing.locales.includes(cookieLocale as any)
-		? (cookieLocale as 'en' | 'ru')
+		? (cookieLocale as any)
 		: routing.defaultLocale;
 
 	return {

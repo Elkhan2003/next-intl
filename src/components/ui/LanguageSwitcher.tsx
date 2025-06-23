@@ -7,8 +7,9 @@ import { routing } from '@/i18n/routing';
 import { IoIosArrowDown } from 'react-icons/io';
 
 const languages = {
-	en: { name: 'English', flag: '🇺🇸' },
-	ru: { name: 'Русский', flag: '🇷🇺' }
+	ky: { name: 'Кыргызча', flag: '🇰🇬' },
+	ru: { name: 'Русский', flag: '🇷🇺' },
+	en: { name: 'English', flag: '🇺🇸' }
 };
 
 export const LanguageSwitcher: FC = () => {
