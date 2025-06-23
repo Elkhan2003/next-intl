@@ -1,9 +1,10 @@
 'use client';
 import { FC, useState, useRef, useEffect } from 'react';
+import scss from './LanguageSwitcher.module.scss';
 import { useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { routing } from '@/i18n/routing';
-import scss from './LanguageSwitcher.module.scss';
+import { IoIosArrowDown } from 'react-icons/io';
 
 interface LanguageSwitcherProps {
 	className?: string;
@@ -62,15 +63,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ className }) => {
 				<span className={scss.flag}>{currentLang.flag}</span>
 				<span className={scss.label}>{currentLang.name}</span>
 				<span className={`${scss.arrow} ${isOpen ? scss.rotated : ''}`}>
-					<svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-						<path
-							d="M3 4.5L6 7.5L9 4.5"
-							stroke="currentColor"
-							strokeWidth="1.5"
-							strokeLinecap="round"
-							strokeLinejoin="round"
-						/>
-					</svg>
+					<IoIosArrowDown />
 				</span>
 			</button>
 
@@ -89,24 +82,6 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ className }) => {
 								>
 									<span className={scss.flag}>{lang.flag}</span>
 									<span className={scss.optionLabel}>{lang.name}</span>
-									{isActive && (
-										<span className={scss.checkmark}>
-											<svg
-												width="16"
-												height="16"
-												viewBox="0 0 16 16"
-												fill="none"
-											>
-												<path
-													d="M13.5 4.5L6 12L2.5 8.5"
-													stroke="currentColor"
-													strokeWidth="2"
-													strokeLinecap="round"
-													strokeLinejoin="round"
-												/>
-											</svg>
-										</span>
-									)}
 								</button>
 							);
 						})}
