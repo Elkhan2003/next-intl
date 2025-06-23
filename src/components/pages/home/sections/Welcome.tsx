@@ -20,10 +20,10 @@ export const Welcome: FC = () => {
 								rel="noopener noreferrer"
 								className={scss.primaryBtn}
 							>
-								Visit ElchoDev
+								{t('visitElchoDev')}
 							</a>
 							<a href="#projects" className={scss.secondaryBtn}>
-								View Projects
+								{t('viewProjects')}
 							</a>
 						</div>
 					</div>

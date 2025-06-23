@@ -1,6 +1,8 @@
 {
 	"HomePage": {
 		"title": "Welcome!",
-		"description": "ElchoDev is a passionate full-stack developer creating innovative web solutions. We specialize in modern technologies like React, Next.js, Node.js, and TypeScript to build fast, scalable, and user-friendly applications."
+		"description": "ElchoDev is a passionate full-stack developer creating innovative web solutions. We specialize in modern technologies like React, Next.js, Node.js, and TypeScript to build fast, scalable, and user-friendly applications.",
+		"visitElchoDev": "Visit ElchoDev",
+		"viewProjects": "View Projects"
 	}
 }

@@ -8,7 +8,10 @@ export const Header: FC = () => {
 		<header className={scss.Header}>
 			<div className="container">
 				<div className={scss.content}>
-					<div>ElchoDev</div>
+					<div className={scss.logo}>
+						<span className={scss.logoText}>Elcho</span>
+						<span className={scss.logoAccent}>Dev</span>
+					</div>
 					<LanguageSwitcher />
 				</div>
 			</div>
