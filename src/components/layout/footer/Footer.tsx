@@ -7,7 +7,7 @@ export const Footer: FC = () => {
 		<footer className={scss.Footer}>
 			<div className="container">
 				<div className={scss.content}>
-					<a href="https://elcho.dev" target="_blank">
+					<a id="footer-info" href="https://elcho.dev" target="_blank">
 						Built with ♡ by ElchoDev
 					</a>
 				</div>

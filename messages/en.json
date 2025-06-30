@@ -4,5 +4,52 @@
 		"description": "ElchoDev is a passionate full-stack developer creating innovative web solutions. We specialize in modern technologies like React, Next.js, Node.js, and TypeScript to build fast, scalable, and user-friendly applications.",
 		"visitElchoDev": "Visit ElchoDev",
 		"viewProjects": "View Projects"
+	},
+	"AboutDriverJs": {
+		"title": "About Driver.js",
+		"description": "Driver.js is a powerful and lightweight library for creating interactive product tours and onboarding experiences. It helps guide users through your application with beautiful overlays and step-by-step instructions.",
+		"features": {
+			"title": "Key Features",
+			"highlighting": {
+				"title": "Element Highlighting",
+				"description": "Highlight specific elements on your page with smooth animations and customizable overlays."
+			},
+			"tours": {
+				"title": "Interactive Tours",
+				"description": "Create step-by-step guided tours to help users understand your application's features."
+			},
+			"customization": {
+				"title": "Full Customization",
+				"description": "Customize appearance, animations, and behavior to match your application's design."
+			},
+			"responsive": {
+				"title": "Mobile Responsive",
+				"description": "Works perfectly on all devices and screen sizes with responsive design support."
+			}
+		},
+		"demo": {
+			"title": "Try It Out",
+			"description": "Experience Driver.js in action! Click the buttons below to see different features and capabilities.",
+			"startTour": "Start Interactive Tour",
+			"highlight": "Highlight Element",
+			"exampleElement": "🎯 This element will be highlighted!"
+		},
+		"code": {
+			"title": "Simple Implementation",
+			"exampleTitle": "Welcome to Driver.js!",
+			"exampleDescription": "This is how easy it is to create interactive tours."
+		},
+		"tour": {
+			"titleStep": "📋 Section Title",
+			"titleDescription": "This is the main title of our Driver.js demonstration section.",
+			"featuresStep": "✨ Features Overview",
+			"featuresDescription": "Here we showcase the main capabilities and benefits of using Driver.js in your projects.",
+			"demoBtnStep": "🎮 Interactive Demo",
+			"demoBtnDescription": "These buttons allow you to experience Driver.js features in real-time."
+		},
+		"highlight": {
+			"title": "🎯 Element Highlighting",
+			"description": "This demonstrates how Driver.js can highlight and focus on specific elements with beautiful overlays."
+		}
 	}
 }

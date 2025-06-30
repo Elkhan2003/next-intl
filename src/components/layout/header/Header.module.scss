@@ -1,8 +1,11 @@
 .Header {
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: 1000;
 	background-color: #1a1a1a;
 	border-bottom: 1px solid #333;
 	padding: 1rem 0;
-	position: relative;
 
 	// Тонкий градиентный фон
 	&::before {
