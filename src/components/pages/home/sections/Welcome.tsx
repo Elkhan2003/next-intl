@@ -11,10 +11,15 @@ export const Welcome: FC = () => {
 			<div className="container">
 				<div className={scss.content}>
 					<div className={scss.hero}>
-						<h1 className={scss.title}>{t('title')}</h1>
-						<p className={scss.description}>{t('description')}</p>
+						<h1 id="welcome-title" className={scss.title}>
+							{t('title')}
+						</h1>
+						<p id="welcome-description" className={scss.description}>
+							{t('description')}
+						</p>
 						<div className={scss.actions}>
 							<a
+								id="primary-btn"
 								href="https://elcho.dev"
 								target="_blank"
 								rel="noopener noreferrer"
@@ -23,6 +28,7 @@ export const Welcome: FC = () => {
 								{t('visitElchoDev')}
 							</a>
 							<a
+								id="secondary-btn"
 								href="https://elcho.dev"
 								target="_blank"
 								rel="noopener noreferrer"
@@ -32,7 +38,7 @@ export const Welcome: FC = () => {
 							</a>
 						</div>
 					</div>
-					<div className={scss.decoration}>
+					<div id="decoration" className={scss.decoration}>
 						<div className={scss.circle}></div>
 						<div className={scss.circle}></div>
 						<div className={scss.circle}></div>
