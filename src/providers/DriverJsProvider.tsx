@@ -1,31 +1,12 @@
 'use client';
 import { FC, ReactNode, useEffect } from 'react';
+import 'driver.js/dist/driver.css';
 
 interface IDriverJsProviderProps {
 	children: ReactNode;
 }
 
 export const DriverJsProvider: FC<IDriverJsProviderProps> = ({ children }) => {
-	// useEffect(() => {
-	// 	// Динамический импорт driver.js только на клиенте
-	// 	const initDriver = async () => {
-	// 		if (typeof window !== 'undefined') {
-	// 			const { driver } = await import('driver.js');
-
-	// 			const driverObj = driver();
-	// 			driverObj.highlight({
-	// 				element: '#some-element',
-	// 				popover: {
-	// 					title: 'Title',
-	// 					description: 'Description'
-	// 				}
-	// 			});
-	// 		}
-	// 	};
-
-	// 	initDriver();
-	// }, []);
-
 	useEffect(() => {
 		// Динамический импорт driver.js только на клиенте
 		const initDriver = async () => {
@@ -34,6 +15,8 @@ export const DriverJsProvider: FC<IDriverJsProviderProps> = ({ children }) => {
 
 				const driverObj = driver({
 					showProgress: true,
+					nextBtnText: 'Далее →',
+					prevBtnText: '← Назад',
 					steps: [
 						{
 							element: '#welcome-title',
@@ -43,6 +26,12 @@ export const DriverJsProvider: FC<IDriverJsProviderProps> = ({ children }) => {
 									'Это главный заголовок нашего сайта. Здесь мы приветствуем новых посетителей и рассказываем о нашей миссии.',
 								side: 'bottom',
 								align: 'center'
+								// onNextClick: () => {
+								// 	// логика при клике на "Далее"
+								// },
+								// onPrevClick: () => {
+								// 	// логика при клике на "Назад"
+								// }
 							}
 						},
 						{
