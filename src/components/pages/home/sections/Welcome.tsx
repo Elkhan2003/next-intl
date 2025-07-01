@@ -2,18 +2,39 @@
 import { FC } from 'react';
 import scss from './Welcome.module.scss';
 import { useTranslations } from 'next-intl';
+import { useDriverJs } from '@/hooks/useDriverJs';
 
 export const Welcome: FC = () => {
 	const t = useTranslations('HomePage');
+	const { driver, startTour, isReady } = useDriverJs();
+
+	const handleStartTour = () => {
+		if (isReady) {
+			startTour();
+		}
+	};
 
 	return (
 		<section className={scss.Welcome}>
 			<div className="container">
 				<div className={scss.content}>
 					<div className={scss.hero}>
-						<h1 id="welcome-title" className={scss.title}>
+						<h1
+							id="welcome-title"
+							className={scss.title}
+							onClick={() => {
+								driver?.moveNext();
+							}}
+						>
 							{t('title')}
 						</h1>
+						<button
+							className={scss.tourBtn}
+							onClick={handleStartTour}
+							disabled={!isReady}
+						>
+							Запустить тур
+						</button>
 						<p id="welcome-description" className={scss.description}>
 							{t('description')}
 						</p>
