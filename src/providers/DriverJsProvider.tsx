@@ -13,10 +13,54 @@ export const DriverJsProvider: FC<IDriverJsProviderProps> = ({ children }) => {
 			if (typeof window !== 'undefined') {
 				const { driver } = await import('driver.js');
 
+				// Функция для сохранения текущего шага
+				const saveCurrentStep = (stepIndex: number) => {
+					localStorage.setItem('tourCurrentStep', String(stepIndex));
+				};
+
+				// Функция для получения сохраненного шага
+				const getSavedStep = () => {
+					const saved = localStorage.getItem('tourCurrentStep');
+					return saved ? Number(saved) : 0;
+				};
+
+				// Функция для очистки прогресса тура
+				const clearTourProgress = () => {
+					localStorage.removeItem('tourCurrentStep');
+					localStorage.setItem('tourCompleted', 'true');
+				};
+
+				// Проверяем состояние тура
+				const tourCompleted = localStorage.getItem('tourCompleted');
+				const savedStep = getSavedStep();
+
+				// Запускаем тур если он не был завершен
+				if (!tourCompleted) {
+					setTimeout(() => {
+						if (savedStep > 0) {
+							driverObj.drive(savedStep);
+						} else {
+							driverObj.drive();
+						}
+					}, 1000);
+				}
+
 				const driverObj = driver({
 					showProgress: true,
+					allowClose: false,
 					nextBtnText: 'Далее →',
 					prevBtnText: '← Назад',
+					// Отслеживаем изменения шагов
+					onHighlighted: () => {
+						const currentStep = driverObj.getActiveIndex();
+						if (currentStep !== null) {
+							saveCurrentStep(currentStep!);
+						}
+					},
+					// Добавляем обработчик завершения тура
+					onDestroyed: () => {
+						clearTourProgress();
+					},
 					steps: [
 						{
 							element: '#welcome-title',
@@ -26,12 +70,6 @@ export const DriverJsProvider: FC<IDriverJsProviderProps> = ({ children }) => {
 									'Это главный заголовок нашего сайта. Здесь мы приветствуем новых посетителей и рассказываем о нашей миссии.',
 								side: 'bottom',
 								align: 'center'
-								// onNextClick: () => {
-								// 	// логика при клике на "Далее"
-								// },
-								// onPrevClick: () => {
-								// 	// логика при клике на "Назад"
-								// }
 							}
 						},
 						{
@@ -74,7 +112,6 @@ export const DriverJsProvider: FC<IDriverJsProviderProps> = ({ children }) => {
 								align: 'center'
 							}
 						},
-						//
 						{
 							element: '#footer-info',
 							popover: {
@@ -87,11 +124,6 @@ export const DriverJsProvider: FC<IDriverJsProviderProps> = ({ children }) => {
 						}
 					]
 				});
-
-				// Автоматически запускаем тур через небольшую задержку
-				setTimeout(() => {
-					driverObj.drive();
-				}, 1000);
 			}
 		};
 
